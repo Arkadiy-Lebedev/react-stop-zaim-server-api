@@ -48,7 +48,7 @@ const createPost =  (req, res) => {
     if (files) {
       
       files.map(item => {
-        paths.push(`http://localhost:${process.env.PORT}/static/${item.filename}`)
+        paths.push(`${process.env.EDDFILES}:${process.env.PORT}/static/${item.filename}`)
       })
     }
 
@@ -57,7 +57,7 @@ const createPost =  (req, res) => {
     // Получаем все самолеты из Монго
     Post.create({
       titletextindex: titlePage,
-      titleimgindex: `${req.files.file ? `http://localhost:${process.env.PORT}/static/${req.files.file[0].filename}` : ''}`,
+      titleimgindex: `${req.files.file ? `${process.env.EDDFILES}:${process.env.PORT}/static/${req.files.file[0].filename}` : ''}`,
       imgindexalt: imgAlt,
       title: titleNew,
       pageimg: paths,
@@ -97,7 +97,7 @@ const editPost =  (req, res) => {
   
     Post.updateOne({_id: req.params.id}, {
       titletextindex: titlePage,
-      titleimgindex: `${typeof req.files.file == "object" ? `http://localhost:${process.env.PORT}/static/${req.files.file[0].filename}` : req.body.file}`,
+      titleimgindex: `${typeof req.files.file == "object" ? `${process.env.EDDFILES}:${process.env.PORT}/static/${req.files.file[0].filename}` : req.body.file}`,
       imgindexalt: imgAlt,
       title: titleNew,
       pageimg: paths,
