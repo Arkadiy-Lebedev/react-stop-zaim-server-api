@@ -22,10 +22,13 @@ app.use("/static", express.static(__dirname + "/assets"));
 
 
 app.use("/api/posts", require("./routes/posts"));
+mongoose.set('strictQuery', false);
 mongoose.connect(process.env.DBMONGO).then(() => {
   app.listen(port, () => {
     console.log(`App listening on port ${port}`);
   });
 });
 
+// node --unhandled-rejections=strict server.js
 // mongodb://localhost:27017
+
