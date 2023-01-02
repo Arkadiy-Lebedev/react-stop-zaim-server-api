@@ -23,8 +23,13 @@ app.use("/static", express.static(__dirname + "/assets"));
 
 app.use("/api/posts", require("./routes/posts"));
 
-mongoose.connect("mongodb://localhost:27017").then(() => {
-  app.listen(port, () => {
-    console.log(`App listening on port ${port}`);
-  });
+// mongoose.connect("mongodb://localhost:27017").then(() => {
+//   app.listen(port, () => {
+//     console.log(`App listening on port ${port}`);
+//   });
+// });
+
+
+app.listen(port, () => {
+  console.log(`App listening on port ${port}`);
 });
