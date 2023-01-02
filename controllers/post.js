@@ -122,11 +122,12 @@ const delImgFromArrayId =  (req, res) => {
     Post.updateOne({_id: req.params.id}, {$pull: {pageimg: req.body.name}})
       .then((post) => {
         res.status(200).json(post);
-        console.log(__dirname +`${req.body.name}`)
-        fs.unlink(`${req.body.name}`, (err) => {
-          if (err) throw err;        
-          console.log('Deleted');
-        });        
+        // console.log(__dirname +`${req.body.name}`)
+        // fs.unlink(`${req.body.name}`, (err) => {
+        //   if (err) throw err;        
+        //   console.log('Deleted');
+        // });
+        
     })         
   } catch {
     res.status(500).json({ message: "Не удалось удалить изображение," });
