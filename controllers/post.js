@@ -89,7 +89,7 @@ const editPost =  (req, res) => {
     console.log(paths)
     if (files) {     
       files.map(item => {       
-        paths.push(`http://45.147.176.36:${process.env.PORT}/static/${item.filename}`)
+        paths.push(`${process.env.EDDFILES}:${process.env.PORT}/static/${item.filename}`)
       })
     }
 
