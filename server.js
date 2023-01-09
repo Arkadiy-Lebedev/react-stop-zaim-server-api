@@ -22,6 +22,8 @@ app.use("/static", express.static(__dirname + "/assets"));
 
 
 app.use("/api/posts", require("./routes/posts"));
+app.use("/api/auth", require("./routes/auth"));
+
 mongoose.set('strictQuery', false);
 mongoose.connect(process.env.DBMONGO).then(() => {
   app.listen(port, () => {
